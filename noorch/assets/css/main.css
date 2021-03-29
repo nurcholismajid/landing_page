@@ -1,0 +1,42 @@
+/* Navbar Setting */
+.navbar { padding: 20px 120px; }
+.navbar-nav { margin-left: auto;}
+.navbar a { font-family: 'Staatliches', cursive; }
+
+a.nav-link { 
+    font-size: 1.1em;
+    margin-left: 20px;
+}
+
+a.navbar-brand { 
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+}
+
+/* Page Header Setting */
+.page-header {
+    height: 70vh;
+    width: 100%;
+}
+
+.page-header video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.page-header:after {
+    background-image: url("../image/grainy.jpg"); /* add texture in here */
+    content: "";
+    height: 170%;
+    left: -50%;
+    position: absolute;
+    opacity: 0.1;
+    top: -100%;
+    width: 150%;
+}
+
+/* mobile version */
+@media(max-width: 786px) {
+    .navbar { padding: 20px; }
+}
