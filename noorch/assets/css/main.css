@@ -7,7 +7,6 @@ a.nav-link {
     font-size: 1.1em;
     margin-left: 20px;
 }
-
 a.navbar-brand { 
     font-size: 1.6rem;
     letter-spacing: 2px;
@@ -18,13 +17,12 @@ a.navbar-brand {
     height: 70vh;
     width: 100%;
 }
-
 .page-header video {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
-
 .page-header:after {
     background-image: url("../image/grainy.jpg"); /* add texture in here */
     content: "";
@@ -36,7 +34,88 @@ a.navbar-brand {
     width: 150%;
 }
 
+/* carousel caption */
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.carousel-caption h5 {
+    font-size: 4rem;
+    font-family: 'Staatliches', cursive;
+}
+.rm-fill {
+    position: absolute;
+    top: 7.2%;
+    left: 50.5%;
+    transform: translateY(-7.2%);
+    transform: translateX(-50.5%);
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgb(187, 187, 187);
+    z-index: -1;
+}
+.carousel-caption p {
+    font-size: 1.2rem;
+}
+
+/* carousel partners */
+.slider {
+    background-color: white;
+    width: 960px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    top: -50px;
+    margin: auto;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+}
+.slider::before, .slider::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%);
+}
+.slider::after {
+    top: 0;
+    left: 0;
+}
+.slider::before {
+    top: 0;
+    right: 0;
+    transform: rotateZ(180deg);
+}
+.slider .slider-track {
+    display: flex;
+    width: calc(250px * 14);
+    animation: scroll 40s infinite linear;
+}
+.slider .slide img {
+    width: 250px;
+    height: 100px;
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+    }
+
+    100% {
+        -webkit-transform: translateX(-100vh);
+        transform: translateX(-100vh);
+    }
+}
+
 /* mobile version */
 @media(max-width: 786px) {
     .navbar { padding: 20px; }
+    .slider { 
+        width: 100%;
+        height: 90px;
+        box-shadow: none;
+    }
+    .slider::before, .slider::after {
+        background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 0%);
+    }
 }
