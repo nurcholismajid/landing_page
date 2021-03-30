@@ -26,7 +26,7 @@ a.navbar-brand {
 .page-header:after {
     background-image: url("../image/grainy.jpg"); /* add texture in here */
     content: "";
-    height: 170%;
+    height: 171%;
     left: -50%;
     position: absolute;
     opacity: 0.1;
@@ -59,53 +59,58 @@ a.navbar-brand {
 }
 
 /* carousel partners */
-.slider {
-    background-color: white;
-    width: 960px;
-    height: 100px;
-    overflow: hidden;
+.wrapper {
     position: relative;
-    top: -50px;
-    margin: auto;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+    top: -350px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider {
+    width: 1000px;
+    height: 100px;
+    position: relative;
+    background: white;
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,0.2);
+    display: flex;
+    overflow: hidden;
+}
+.slide {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    animation: slideshow 40s linear infinite;
+}
+.slide img {
+    height: 70px;
+    padding: 0 30px 0 30px;
+}
+
+@keyframes slideshow {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(-100%);}
 }
 .slider::before, .slider::after {
-    content: '';
-    position: absolute;
-    width: 200px;
     height: 100px;
+    width: 200px;
+    position: absolute;
+    content: "";
     background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%);
-}
-.slider::after {
-    top: 0;
-    left: 0;
+    z-index: 2;
 }
 .slider::before {
+    left: 0;
     top: 0;
-    right: 0;
+}
+.slider::after {
+    right:0;
+    top:0;
     transform: rotateZ(180deg);
 }
-.slider .slider-track {
-    display: flex;
-    width: calc(250px * 14);
-    animation: scroll 40s infinite linear;
-}
-.slider .slide img {
-    width: 250px;
-    height: 100px;
-}
 
-@keyframes scroll {
-    0% {
-        -webkit-transform: translateX(0px);
-        transform: translateX(0px);
-    }
-
-    100% {
-        -webkit-transform: translateX(-100vh);
-        transform: translateX(-100vh);
-    }
-}
+/* scrolling menu */
 
 /* mobile version */
 @media(max-width: 786px) {
@@ -118,4 +123,13 @@ a.navbar-brand {
     .slider::before, .slider::after {
         background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 0%);
     }
+  
+    /* menu */
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+    }
+
 }
